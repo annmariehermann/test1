@@ -7,7 +7,8 @@ Ext.define('CustomApp', {
                 xtype: 'rallybutton', 
                 text: 'Click me', 
                 handler: function() { 
-                    Ext.Msg.alert('Alert Message', 'Test'); 
+                    Ext.Msg.alert('Alert Message', 'Testing'); 
+                    
                 } 
             } 
         ],
@@ -16,3 +17,5 @@ Ext.define('CustomApp', {
         //Write app code here
     }
 });
+//different now
+//change
