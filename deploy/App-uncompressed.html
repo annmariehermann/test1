@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>testApp</title>
+
+    <script type="text/javascript" src="/apps/2.0rc2/sdk.js"></script>
+
+    <script type="text/javascript">
+        Rally.onReady(function () {
+                Ext.define('CustomApp', {
+    extend: 'Rally.app.App',
+    componentCls: 'app',
+    
+        items : [ 
+            { 
+                xtype: 'rallybutton', 
+                text: 'Click me', 
+                handler: function() { 
+                    Ext.Msg.alert('Button', 'You clicked me'); 
+                } 
+            } 
+        ],
+        
+        launch: function() {
+        //Write app code here
+    }
+});
+
+
+            Rally.launchApp('CustomApp', {
+                name:"testApp",
+	            parentRepos:""
+            });
+
+        });
+    </script>
+
+
+    <style type="text/css">
+        .app {
+     /* Add app styles here */
+}
+
+    </style>
+</head>
+<body></body>
+</html>
