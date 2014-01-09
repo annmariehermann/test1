@@ -1,21 +1,34 @@
-Ext.define('CustomApp', {
-    extend: 'Rally.app.App',
-    componentCls: 'app',
-    
-        items : [ 
-            { 
-                xtype: 'rallybutton', 
-                text: 'Click me', 
-                handler: function() { 
-                    Ext.Msg.alert('Alert Message', 'Testing'); 
-                    
-                } 
-            } 
-        ],
+Rally.onReady(function(){
+    Ext.define('CustomApp', {
+        extend: 'Rally.app.App',
+        componentCls: 'app',
         
         launch: function() {
-        //Write app code here
-    }
-});
-//different now
-//change
+            Rally.data.ModelFactory.getModel({
+                type: 'UserStory',
+                success: function(model) {
+                    this.grid=this.add({
+                        xtype:'rallygrid',
+                        model: model,
+                        columnCfgs: [
+                            'FormattedID',
+                            'Name',
+                            'Owner'
+                            ],
+                            storeConfig: {
+                                filters: [
+                                    {
+                                        property:'ScheduleState',
+                                        operator: '=',
+                                        value:'Defined'
+                                        
+                                    }
+                                ]
+                            }
+                    });
+                },
+                scope: this
+    });
+}
+}
+)});
